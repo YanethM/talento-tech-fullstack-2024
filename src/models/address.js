@@ -1,21 +1,24 @@
 const mongoose = require("mongoose");
-const shoppingCarSchema = new mongoose.Schema({
+const addressSchema = new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Users',
         required: true
     },
-    product:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Products',
+    city:{
+        type: String,
         required: true
     },
-    quantity:{
-        type: Number,
+    state:{
+        type: String,
         required: true
     },
-    invoce:{
-        type: Array,
+    nomenclature:{
+        type: String,
+        required: true
+    },
+    zip:{
+        type: String,
         required: true
     },
     createdAt:{
@@ -23,6 +26,5 @@ const shoppingCarSchema = new mongoose.Schema({
         default: Date.now
     }
 })
-
-const ShoppingCar = mongoose.model("ShoppingCar", shoppingCarSchema);
-module.exports = ShoppingCar;
+const Address = mongoose.model("Address", addressSchema);
+module.exports = Address;
